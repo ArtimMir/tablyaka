@@ -8,7 +8,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Загрузка данных из JSON
     function loadData() {
-        fetch('data.json') // Предполагается, что бэкенд сохраняет данные в data.json
+        fetch('data.json', { cache: 'no-store' }) // Предполагается, что бэкенд сохраняет данные в data.json
             .then(response => response.json())
             .then(data => {
                 updateTime.textContent = new Date(data.lastUpdated).toLocaleString();
@@ -17,7 +17,6 @@ document.addEventListener('DOMContentLoaded', () => {
             .catch(error => console.error('Ошибка загрузки данных:', error));
     }
 
-    // Обновление таблицы
     function updateTable(data) {
         const service1 = service1Select.value;
         const service2 = service2Select.value;
@@ -27,6 +26,7 @@ document.addEventListener('DOMContentLoaded', () => {
         items.forEach(item => {
             const price1 = item[service1].price;
             const price2 = item[service2].price;
+            const steamPrice = item.steam ? item.steam.price : 0;
             const profit = price1 > 0 ? ((price2 - price1) / price1 * 100).toFixed(2) : 0;
 
             const row = document.createElement('tr');
@@ -35,6 +35,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 <td>$${price1.toFixed(2)}</td>
                 <td>$${price2.toFixed(2)}</td>
                 <td>${profit}%</td>
+                <td>$${steamPrice.toFixed(2)}</td> <!-- Добавляем -->
                 <td>${item[service1].count}</td>
                 <td>${item[service2].count}</td>
             `;
