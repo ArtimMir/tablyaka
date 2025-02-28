@@ -34,7 +34,6 @@ document.addEventListener('DOMContentLoaded', () => {
                 <td>$${price1.toFixed(2)}</td>
                 <td>$${price2.toFixed(2)}</td>
                 <td>${profit}%</td>
-                <td>$${steamPrice.toFixed(2)}</td> <!-- Добавляем -->
                 <td>${item[service1].count}</td>
                 <td>${item[service2].count}</td>
             `;
