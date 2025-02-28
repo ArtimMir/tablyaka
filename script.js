@@ -26,7 +26,6 @@ document.addEventListener('DOMContentLoaded', () => {
         items.forEach(item => {
             const price1 = item[service1].price;
             const price2 = item[service2].price;
-            const steamPrice = item.steam ? item.steam.price : 0;
             const profit = price1 > 0 ? ((price2 - price1) / price1 * 100).toFixed(2) : 0;
 
             const row = document.createElement('tr');
