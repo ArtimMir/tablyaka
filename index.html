@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Сравнение цен сервисов</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Сравнение цен сервисов</h1>
+        <div class="selectors">
+            <div>
+                <label for="service1">Первый сервис:</label>
+                <select id="service1">
+                    <option value="swap.gg">Swap.gg</option>
+                    <option value="loot.farm">Loot.farm</option>
+                    <option value="pirateswap">Pirateswap</option>
+                    <option value="tradeit">Tradeit</option>
+                </select>
+            </div>
+            <div>
+                <label for="service2">Второй сервис:</label>
+                <select id="service2">
+                    <option value="swap.gg">Swap.gg</option>
+                    <option value="loot.farm">Loot.farm</option>
+                    <option value="pirateswap">Pirateswap</option>
+                    <option value="tradeit">Tradeit</option>
+                </select>
+            </div>
+        </div>
+        <div id="last-updated">Последнее обновление: <span id="update-time"></span></div>
+        <table id="price-table">
+            <thead>
+                <tr>
+                    <th>Название предмета</th>
+                    <th>Цена (Сервис 1)</th>
+                    <th>Цена (Сервис 2)</th>
+                    <th id="profit-header" class="sortable">Процент прибыли (%)</th>
+                    <th>Кол-во (Сервис 1)</th>
+                    <th>Кол-во (Сервис 2)</th>
+                </tr>
+            </thead>
+            <tbody id="table-body"></tbody>
+        </table>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
