@@ -24,8 +24,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
         const items = data.items.filter(item => item[service1] && item[service2]);
         items.forEach(item => {
-            const price1 = item[service1].price;
-            const price2 = item[service2].price;
+            const price1 = parseFloat(item[service1].price) || 0;
+            const price2 = parseFloat(item[service2].price) || 0;
             const profit = price1 > 0 ? ((price2 - price1) / price1 * 100).toFixed(2) : 0;
 
             const row = document.createElement('tr');
